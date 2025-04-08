@@ -76,16 +76,22 @@ public class Homework0402 {
 		Scanner sc = new Scanner(System.in);
 		int borrow = sc.nextInt();
 		
-		System.out.print("有錢可借的員工編號: ");
-		for(int i = 0 ; i < lend.length ; i++) {
-			for (int j = 0 ; j < lend[i].length ; j++) {
-				if(borrow <= lend[i][j]) {
-				System.out.print(lend[0][j] + " ");
-				lendCount++;
+		if(borrow > 0 && borrow <= 2500) {
+			System.out.print("有錢可借的員工編號: ");
+			for(int i = 0 ; i < lend[1].length ; i++) {
+				if(borrow <= lend[1][i]) {
+					System.out.print(lend[0][i] + " ");
+					lendCount++;
 				}
 			}
+			System.out.print("共 " + lendCount + " 人!");
 		}
-		System.out.print("共 " + lendCount + " 人!");
+		else if(borrow > 2500) {
+			System.out.print("沒人能借你啦!");
+		}
+		else {
+			System.out.print("你輸入的是什麼東西?!");
+		}
 		System.out.println();
 		System.out.println();
 		System.out.println("============");
@@ -95,18 +101,20 @@ public class Homework0402 {
 		System.out.println("第五題");
 		System.out.println();
 		
-		int getDate[] = new int[3];
+		//正常版月日
 		int yearDays[][] = {
 			{1,2,3,4,5,6,7,8,9,10,11,12},
 			{31,28,31,30,31,30,31,31,30,31,30,31}
 		};
+		//閏年版月日
 		int yearLeapDays[][] = {
 				{1,2,3,4,5,6,7,8,9,10,11,12},
 				{31,29,31,30,31,30,31,31,30,31,30,31}
 			};
 		
 		int dayOfYear = 0;
-		int x;
+		
+		int getDate[] = new int[3];
 		
 		System.out.println("Please enter year month day:");
 		Scanner scan = new Scanner(System.in);
@@ -149,93 +157,57 @@ public class Homework0402 {
 // 第六題
 		System.out.println("第六題");
 		System.out.println();	
-		int score[][] = new int[6][8];
-							
-		score[0][0] = 10;
-		score[0][1] = 35;
-		score[0][2] = 40;
-		score[0][3] = 100;
-		score[0][4] = 90;
-		score[0][5] = 85;
-		score[0][6] = 75;
-		score[0][7] = 70;
-
-		score[1][0] = 37;
-		score[1][1] = 75;
-		score[1][2] = 77;
-		score[1][3] = 89;
-		score[1][4] = 64;
-		score[1][5] = 75;
-		score[1][6] = 70;
-		score[1][7] = 95;
 		
-		score[2][0] = 100;
-		score[2][1] = 70;
-		score[2][2] = 79;
-		score[2][3] = 90;
-		score[2][4] = 75;
-		score[2][5] = 70;
-		score[2][6] = 79;
-		score[2][7] = 90;
+		//6次考試，每次考試分數
+		int score[][] = {
+			{10,35,40,100,90,85,75,70},
+			{37,75,77,89,64,75,70,95},
+			{100,70,79,90,75,70,79,90},
+			{77,95,70,89,60,75,85,89},
+			{98,70,89,90,75,90,89,90},
+			{90,80,100,75,50,20,99,75}
+		};
 		
-		score[3][0] = 77;
-		score[3][1] = 95;
-		score[3][2] = 70;
-		score[3][3] = 89;
-		score[3][4] = 60;
-		score[3][5] = 75;
-		score[3][6] = 85;
-		score[3][7] = 89;
+		//1-8號同學，當次考試最高分次數(起始值0)
+		int studentCount[][] = {
+			{1,2,3,4,5,6,7,8},
+			{0,0,0,0,0,0,0,0}
+		};
 		
-		score[4][0] = 98;
-		score[4][1] = 70;
-		score[4][2] = 89;
-		score[4][3] = 90;
-		score[4][4] = 75;
-		score[4][5] = 90;
-		score[4][6] = 89;
-		score[4][7] = 90;
-		
-		score[5][0] = 90;
-		score[5][1] = 80;
-		score[5][2] = 100;
-		score[5][3] = 75;
-		score[5][4] = 50;
-		score[5][5] = 20;
-		score[5][6] = 99;
-		score[5][7] = 75;
-		
-		
-		int studentCount[][] = new int[8][2];
-		studentCount[0][0] = 0;
-		studentCount[1][0] = 0;
-		studentCount[2][0] = 0;
-		studentCount[3][0] = 0;
-		studentCount[4][0] = 0;
-		studentCount[5][0] = 0;
-		studentCount[6][0] = 0;
-		studentCount[7][0] = 0;
-		
-		int studentNum = 0;
+		int studentNum;
 		int highScore;
-		int z;
+		int highScoreStudent;
 		
+		//迴圈地幾次考試
 		for (int i = 0; i < score.length; i++) {
-			z = 0;
+			
+			//重置最高分，最高分的同學
 			highScore = 0;
+			highScoreStudent = 0;
+			
+			//迴圈每個同學分數
 			for(int j = 0; j < score[i].length; j++) {
+				
+				//當分數大於本次考試暫時的最高分就會進入if
 				if(highScore < score[i][j]) {
+				//紀錄本次考試暫時最高分
 				highScore = score[i][j];
-				z = j;
+				//紀錄本次考試最高分的同學
+				highScoreStudent = j;
 				}
+				//若沒有比暫時最高分高就下一個
 				else {
 				continue;}
 				}
-			studentCount[z][0] = studentCount[z][0] + 1;
+			//在比較完本次考試最高分後更新紀錄最高分次數的陣列
+			studentCount[1][highScoreStudent] = studentCount[1][highScoreStudent] + 1;
 			}
-		for(int i = 0; i < studentCount.length; i++) {
+		
+		//六次考試統計完後輸出第二個陣列的學號以及最高分次數
+		System.out.println("以下是同學考試分數最高的次數:");
+		for(int i = 0; i < studentCount[1].length; i++) {
 		studentNum = i + 1;
-		System.out.println(studentNum + " 號同學考最高分 " + studentCount[i][0] + " 次。");
+		System.out.println(studentNum + " 號同學考最高分 " + studentCount[1][i] + " 次。");
 		}
 	}
 }

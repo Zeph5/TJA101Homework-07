@@ -108,9 +108,9 @@ public class Homework0402 {
 		};
 		//閏年版月日
 		int yearLeapDays[][] = {
-				{1,2,3,4,5,6,7,8,9,10,11,12},
-				{31,29,31,30,31,30,31,31,30,31,30,31}
-			};
+			{1,2,3,4,5,6,7,8,9,10,11,12},
+			{31,29,31,30,31,30,31,31,30,31,30,31}
+		};
 		
 		int dayOfYear = 0;
 		
@@ -169,10 +169,7 @@ public class Homework0402 {
 		};
 		
 		//1-8號同學，當次考試最高分次數(起始值0)
-		int studentCount[][] = {
-			{1,2,3,4,5,6,7,8},
-			{0,0,0,0,0,0,0,0}
-		};
+		int studentCount[] = {0,0,0,0,0,0,0,0};
 		
 		int studentNum;
 		int highScore;
@@ -200,14 +197,14 @@ public class Homework0402 {
 				continue;}
 				}
 			//在比較完本次考試最高分後更新紀錄最高分次數的陣列
-			studentCount[1][highScoreStudent] = studentCount[1][highScoreStudent] + 1;
+			studentCount[highScoreStudent] = studentCount[highScoreStudent] + 1;
 			}
 		
 		//六次考試統計完後輸出第二個陣列的學號以及最高分次數
 		System.out.println("以下是同學考試分數最高的次數:");
-		for(int i = 0; i < studentCount[1].length; i++) {
+		for(int i = 0; i < studentCount.length; i++) {
 		studentNum = i + 1;
-		System.out.println(studentNum + " 號同學考最高分 " + studentCount[1][i] + " 次。");
+		System.out.println(studentNum + " 號同學考最高分 " + studentCount[i] + " 次。");
 		}
 	}
 }

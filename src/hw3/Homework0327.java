@@ -13,6 +13,7 @@ public class Homework0327 {
 		int data1 = sc.nextInt();
 		int data2 = sc.nextInt();
 		int data3 = sc.nextInt();
+		sc.close();
 		
 		if(data1 <= 0 || data2 <= 0 || data3 <= 0) {
 			System.out.println("這不是三角形");

@@ -75,6 +75,7 @@ public class Homework0402 {
 		System.out.println("請輸入想借的金額:");
 		Scanner sc = new Scanner(System.in);
 		int borrow = sc.nextInt();
+		sc.close();
 		
 		if(borrow > 0 && borrow <= 2500) {
 			System.out.print("有錢可借的員工編號: ");
@@ -124,6 +125,7 @@ public class Homework0402 {
 				getDate[i] = scan.nextInt();
 			}
 		}
+		scan.close();
 				
 		int year = getDate[0];
 		int month = getDate[1];

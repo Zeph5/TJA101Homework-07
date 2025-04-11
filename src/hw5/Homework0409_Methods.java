@@ -79,7 +79,7 @@ public class Homework0409_Methods {
 		char randCode[] = new char[8];
 
 		for (int i = 0; i < 8; i++) {
-			int randNum = (int) (Math.random() * (auth.length - 1));
+			int randNum = (int) (Math.random() * (auth.length));
 			randCode[i] = auth[randNum];
 		}
 		return randCode;

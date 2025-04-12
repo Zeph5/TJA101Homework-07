@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Calculator2 {
 
-	private int x;
-	private int y;
+	private int x = 1;
+	private int y = 1;
 
 	public void useCalculator() throws CalException {
 		int i = 0;
@@ -153,11 +153,13 @@ public class Calculator2 {
 	public void powerXY() {
 		double power = x * Math.pow(x, (y - 1));
 		System.out.println(x + " 的 " + y + " 次方等於 " + (int) power);
+		System.out.println();
 	}
 
 	public void powerXY(int x, int y) {
 		double power = x * Math.pow(x, (y - 1));
 		System.out.println(x + " 的 " + y + " 次方等於 " + (int) power);
+		System.out.println();
 	}
 
 }

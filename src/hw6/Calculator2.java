@@ -10,29 +10,29 @@ public class Calculator2 {
 
 	public void useCalculator() throws CalException {
 		int i = 0;
-
 		while (i < 1) {
 			Scanner sc = new Scanner(System.in);
 			try {
 				System.out.println("請輸入 x 的值");
 				int x = sc.nextInt();
 				this.x = x;
+				
 				System.out.println("請輸入 y 的值");
 				int y = sc.nextInt();
 				if (y == 0 && x == 0) {
-					System.out.println("0的0次方沒有意義");
+					System.out.println("--0 的 0 次方沒有意義--");
 					System.out.println();
-					throw new CalException("0的0次方沒有意義！");
+					throw new CalException();
 				} else if (y < 0) {
-					System.out.println("次方為負值，結果回傳不為整數！");
+					System.out.println("--次方為負值，結果回傳不為整數！--");
 					System.out.println();
-					throw new CalException("次方為負值，結果回傳不為整數！");
+					throw new CalException();
 				} else {
 					this.y = y;
 				}
 				powerXY(x, y);
 			} catch (InputMismatchException e) {
-				System.out.println("輸入格式不正確");
+				System.out.println("--輸入格式不正確--");
 				System.out.println();
 				continue;
 			} catch (CalException e) {
@@ -46,23 +46,12 @@ public class Calculator2 {
 	}
 
 	public Calculator2(int x, int y) throws CalException {
-		if (x == 0 && y == 0) {
-			System.out.println("0的0次方沒有意義");
-			System.out.println();
-			throw new CalException();
-		} else if (y < 0) {
-			System.out.println("次方為負值，結果回傳不為整數");
-			System.out.println();
-			throw new CalException("次方為負值，結果回傳不為整數");
-		} else {
-			this.x = x;
-			this.y = y;
-		}
-
+		this.x = x;
+		setY(y);
 	}
 
 	public void setX() throws CalException {
-		
+
 		Scanner sc = new Scanner(System.in);
 		int i = 0;
 		while (i < 1) {
@@ -70,14 +59,14 @@ public class Calculator2 {
 				System.out.println("請輸入 x 的值");
 				int x = sc.nextInt();
 				if (y == 0 && x == 0) {
-					System.out.println("0的0次方沒有意義");
+					System.out.println("--0 的 0 次方沒有意義--");
 					System.out.println();
 					throw new CalException();
 				} else {
 					this.x = x;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("輸入格式不正確");
+				System.out.println("--輸入格式不正確--");
 				System.out.println();
 				continue;
 			} catch (CalException e) {
@@ -90,14 +79,14 @@ public class Calculator2 {
 	public void setX(int x) throws CalException {
 		try {
 			if (y == 0 && x == 0) {
-				System.out.println("0的0次方沒有意義");
+				System.out.println("--0 的 0 次方沒有意義--");
 				System.out.println();
 				throw new CalException();
 			} else {
 				this.x = x;
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("輸入格式不正確");
+			System.out.println("--輸入格式不正確--");
 			System.out.println();
 		} catch (CalException e) {
 		}
@@ -111,18 +100,18 @@ public class Calculator2 {
 				System.out.println("請輸入 y 的值");
 				int y = sc.nextInt();
 				if (y == 0 && x == 0) {
-					System.out.println("0的0次方沒有意義");
+					System.out.println("--0 的 0 次方沒有意義--");
 					System.out.println();
-					throw new CalException("0的0次方沒有意義！");
+					throw new CalException();
 				} else if (y < 0) {
-					System.out.println("次方為負值，結果回傳不為整數！");
+					System.out.println("--次方為負值，結果回傳不為整數！--");
 					System.out.println();
-					throw new CalException("次方為負值，結果回傳不為整數！");
+					throw new CalException();
 				} else {
 					this.y = y;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("輸入格式不正確");
+				System.out.println("--輸入格式不正確--");
 				System.out.println();
 				continue;
 			} catch (CalException e) {
@@ -135,18 +124,18 @@ public class Calculator2 {
 	public void setY(int y) throws CalException {
 		try {
 			if (y == 0 && x == 0) {
-				System.out.println("0的0次方沒有意義");
+				System.out.println("--0 的 0 次方沒有意義--");
 				System.out.println();
 				throw new CalException();
 			} else if (y < 0) {
-				System.out.println("次方為負值，結果回傳不為整數！");
+				System.out.println("--次方為負值，結果回傳不為整數！--");
 				System.out.println();
-				throw new CalException("次方為負值，結果回傳不為整數！");
+				throw new CalException();
 			} else {
 				this.y = y;
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("輸入格式不正確");
+			System.out.println("--輸入格式不正確--");
 			System.out.println();
 		} catch (CalException e) {
 		}
@@ -163,7 +152,7 @@ public class Calculator2 {
 
 	public void powerXY() {
 		double power = x * Math.pow(x, (y - 1));
-		System.out.println(x + "的" + y + "次方等於 " + (int) power);
+		System.out.println(x + " 的 " + y + " 次方等於 " + (int) power);
 	}
 
 	public void powerXY(int x, int y) {

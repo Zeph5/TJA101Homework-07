@@ -10,8 +10,12 @@ public class Calculator {
 	
 	public Calculator(int x, int y) throws CalException{
 		if (x == 0 && y == 0) {
-			throw new CalException ("0的0次方沒有意義");
+			System.out.println("0 的 0 次方沒有意義");
+			System.out.println();
+			throw new CalException ("0 的 0 次方沒有意義");
 		} else if(y < 0) {
+			System.out.println("次方為負值，結果回傳不為整數");
+			System.out.println();
 			throw new CalException ("次方為負值，結果回傳不為整數");
 		} else {
 			this.x = x;
@@ -22,7 +26,9 @@ public class Calculator {
 	
 	public void setX(int x) throws CalException{
 		if(y == 0 && x == 0) {
-			throw new CalException ("0的0次方沒有意義");
+			System.out.println("0 的 0 次方沒有意義");
+			System.out.println();
+			throw new CalException ("0 的 0 次方沒有意義");
 		} else {
 			this.x = x;
 		}
@@ -30,8 +36,12 @@ public class Calculator {
 	
 	public void setY(int y) throws CalException{
 		if(y == 0 && x == 0) {
-			throw new CalException ("0的0次方沒有意義！");
+			System.out.println("0 的 0 次方沒有意義");
+			System.out.println();
+			throw new CalException ("0 的 0 次方沒有意義！");
 		} else if(y < 0){
+			System.out.println("次方為負值，結果回傳不為整數");
+			System.out.println();
 			throw new CalException ("次方為負值，結果回傳不為整數！");
 		} else {
 			this.y = y;
